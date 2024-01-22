@@ -5,17 +5,19 @@
 
 export const compute = (string1, string2) => {
 
-    let sum = 0;
+  const arr1 = string1.split('');
+  const arr2 = string2.split('');
+  let sum = 0;
 
-    if (string1.length != string2.length) {
-      throw new Error('strands must be of equal length'); 
-
-  } else if (string1.length === string2.length) {
-      for (let i = 0; i < string1.length; i++) {
-        if (string1[i] !== string2[i]) {
+  if (arr1.length !== arr2.length) {
+    throw new Error('strands must be of equal length')
+  
+  } else if (arr1.length === arr2.length) {
+      arr1.forEach((char, i) => {
+        if ( arr1[i] !== arr2[i] ) {
           sum += 1
         }
-      }
-      return sum;
-  }
-};
+      }) 
+    }
+    return sum;
+}
