@@ -30,5 +30,5 @@ export const age = (planet, seconds) => {
 
     case 'neptune':
       return Number((seconds / earthTime / 164.79132).toFixed(2));
-  };
+  }
 };
