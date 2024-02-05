@@ -25,9 +25,9 @@ export class Series {
     throw new Error('slice length cannot be negative')
   }
     else if (sliceLength <= this.series.length) {
-      this.series.forEach((i, value) => {
-        if (value <= index) {
-        newArr.push(this.series.slice(value, sliceLength))
+      this.series.forEach((value, i) => {
+        if (i <= index) {
+        newArr.push(this.series.slice(i, sliceLength))
         sliceLength++
       } 
     })
