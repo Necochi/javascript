@@ -91,29 +91,30 @@ export const decode = (string, num) => {
 
   let down = function() {
     for (let jumper = 0; jumper < fieldArr.length; jumper++) {
-      if (jumper === fieldArr.length - 1) {
-        up()
-      } else if (fieldArr[jumper][index] === undefined) {
-        break
+      if (fieldArr[jumper][index] !== undefined) {
 
-      } else {
-        fieldArr[jumper][index] = '0'
-        index++
+        if (jumper === fieldArr.length - 1) {
+          up()
+
+        } else {
+          fieldArr[jumper][index] = '0'
+          index++
+        }
       }
     }
   }
 
   let up = function() {
     for (let downer = fieldArr.length - 1; downer >= 0; downer--) {
-      if (downer === 0) {
-        down()
-
-      } else if (fieldArr[downer][index] === undefined) {
-        break
-
-      } else {
-        fieldArr[downer][index] = '0'
-        index++
+      if (fieldArr[downer][index] !== undefined) {
+        
+        if (downer === 0) {
+          down()
+          
+        } else {
+          fieldArr[downer][index] = '0'
+          index++
+        }
       }
     }
   }
@@ -136,29 +137,30 @@ index = 0
 
 let down2 = function() {
   for (let jumper = 0; jumper < fieldArr.length; jumper++) {
-    if (jumper === fieldArr.length - 1) {
-      up2()
-    } else if (fieldArr[jumper][index] === undefined) {
-      break
+    if (fieldArr[jumper][index] !== undefined) {
 
-    } else {
+      if (jumper === fieldArr.length - 1) {
+        up2()
+
+      } else {
       str += fieldArr[jumper][index]
       index++
+    }
     }
   }
 }
 
 let up2 = function() {
   for (let downer = fieldArr.length - 1; downer >= 0; downer--) {
-    if (downer === 0) {
-      down2()
+    if (fieldArr[downer][index] !== undefined) {
 
-    } else if (fieldArr[downer][index] === undefined) {
-      break
+      if (downer === 0) {
+        down2()
 
-    } else {
-      str += fieldArr[downer][index]
-      index++
+      } else {
+        str += fieldArr[downer][index]
+        index++
+      }
     }
   }
 }
