@@ -10,35 +10,37 @@ export class Robot {
     #name;
   
     constructor() {
-        this.#name = this.randomName()
+        this.#name = randomName()
     }
 
     reset() {
-        this.#name = this.randomName()
+        this.#name = randomName()
     }
 
     get name() {
       return this.#name
     }
 
-    randomNum() {
+}
+
+function randomNum(){
         return Math.floor(Math.random() * numbers.length)
       }
     
-    randomLetter() {
+   function randomLetter(){
         return letters.charAt(Math.floor(Math.random() * letters.length))
       }
     
-    newName() {
-      return this.randomLetter() + this.randomLetter() + this.randomNum() + this.randomNum() + this.randomNum()
+   function newName(){
+      return randomLetter() + randomLetter() + randomNum() + randomNum() + randomNum()
     }
     
-    randomName() {
-      let robotName = this.newName()
+  function randomName(){
+      let robotName = newName()
       if (used.includes(robotName)) {
         do {
           robotName = null;
-          robotName = this.newName()
+          robotName = newName()
         } while (used.includes(robotName))
       } else {
         used.push(robotName)
@@ -46,6 +48,6 @@ export class Robot {
       }
       return robotName
     }
-}
+
 
 Robot.releaseNames = () => {};
