@@ -3,14 +3,15 @@
 
 let used = []
 const numbers = '0123456789';
-const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+let robotName;
 
 
 export class Robot {
     #name;
   
     constructor() {
-        this.#name = newName()
+        this.#name = randomName();
     }
 
     reset() {
@@ -27,26 +28,29 @@ function randomNum(){
         return Math.floor(Math.random() * numbers.length)
       }
     
-   function randomLetter(){
+function randomLetter(){
         return letters.charAt(Math.floor(Math.random() * letters.length))
       }
     
-   function newName(){
+function newName(){
       let result = randomLetter() + randomLetter() + randomNum() + randomNum() + randomNum()
       return result
     }
+
+function isExist() {
+  do {
+    robotName = null;
+    robotName = newName()
+  } while (used.includes(robotName))
+}
     
   function randomName(){
-      let robotName = newName()
+    robotName = newName()
       if (used.includes(robotName)) {
-        do {
-          robotName = newName()
-        } while (used.includes(robotName))
-      } else {
+        isExist()
+      } 
         used.push(robotName)
         return robotName
-      }
-      return robotName
     }
 
 
