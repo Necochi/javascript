@@ -10,7 +10,7 @@ export class Robot {
     #name;
   
     constructor() {
-        this.#name = randomName()
+        this.#name = newName()
     }
 
     reset() {
@@ -32,14 +32,14 @@ function randomNum(){
       }
     
    function newName(){
-      return randomLetter() + randomLetter() + randomNum() + randomNum() + randomNum()
+      let result = randomLetter() + randomLetter() + randomNum() + randomNum() + randomNum()
+      return result
     }
     
   function randomName(){
       let robotName = newName()
       if (used.includes(robotName)) {
         do {
-          robotName = null;
           robotName = newName()
         } while (used.includes(robotName))
       } else {
