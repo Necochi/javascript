@@ -4,9 +4,8 @@
 //
 
 export const commands = (num) => {
-  const arrOfNums = ['0', '00001', '00010', '00011', '00100', '00101', '00110', '00111', '01000', '01001', '01010', '01011', '01100', '01101', '01110', '01111'];
+  let number = num.toString(2).split('')
   const moves = ['wink', 'double blink', 'close your eyes', 'jump']
-  let stringOfIndex;
   let bigNum;
   const arr = [];
 
@@ -15,9 +14,12 @@ export const commands = (num) => {
     return bigNum;
   }
 
+  for (let i = number.length; number.length < 5; i++) {
+    number.unshift('0')
+  }
+
   const whatTheMove = () => {
-      stringOfIndex = (arrOfNums[bigNum]).split('')
-      stringOfIndex.forEach((value, index) => {
+      number.forEach((value, index) => {
         if (value === '1') {
           if (index === 4) {
             arr.push(moves[0])
@@ -50,6 +52,5 @@ export const commands = (num) => {
     bigNum = num;
     whatTheMove()
     return arr.reverse()
-}
-
+  }
 };
