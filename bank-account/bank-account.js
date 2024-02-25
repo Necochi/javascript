@@ -6,46 +6,45 @@
 import {} from 'http';
 
 export class BankAccount {
-  constructor() {
-  }
+  #balance;
 
   open() {
-    if (this._balance !== 0) {
-      this._balance = 0;
+    if (this.#balance !== 0) {
+      this.#balance = 0;
     } else {
       throw new ValueError();
     }
   }
 
   close() {
-    if (this._balance >= 0) {
-      this._balance = null;
+    if (this.#balance >= 0) {
+      this.#balance = null;
     } else {
       throw new ValueError();
     }
   }
 
   deposit(money) {
-    if (money > 0 && this._balance !== null) {
-      this._balance += money;
+    if (money > 0 && this.#balance !== null) {
+      this.#balance += money;
     } else {
       throw new ValueError();
     }
   }
 
   withdraw(money) {
-    if (money > 0 && this._balance >= money) {
-      this._balance -= money;
+    if (money > 0 && this.#balance >= money) {
+      this.#balance -= money;
     } else {
       throw new ValueError();
     }
   }
 
   get balance() {
-    if (this._balance === null) {
+    if (this.#balance === null) {
       throw new ValueError();
     } else {
-      return this._balance;
+      return this.#balance;
     }
   }
 }

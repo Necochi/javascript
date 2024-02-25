@@ -13,22 +13,24 @@ export class Series {
   }
 
   slices(sliceLength) {
+    let length = sliceLength;
     const newArr = [];
-    const index = this.series.length - sliceLength;
-    if (sliceLength > this.series.length) {
+    const index = this.series.length - length;
+    if (length > this.series.length) {
       throw new Error('slice length cannot be greater than series length');
-    } else if (sliceLength === 0) {
+    } else if (length === 0) {
       throw new Error('slice length cannot be zero');
-    } else if (sliceLength < 0) {
+    } else if (length < 0) {
       throw new Error('slice length cannot be negative');
-    } else if (sliceLength <= this.series.length) {
+    } else if (length <= this.series.length) {
       this.series.forEach((value, i) => {
         if (i <= index) {
-          newArr.push(this.series.slice(i, sliceLength));
-          sliceLength++;
+          newArr.push(this.series.slice(i, length));
+          length += 1;
         }
       });
       return newArr;
     }
+    return newArr;
   }
 }

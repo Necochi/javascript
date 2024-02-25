@@ -66,27 +66,30 @@ export class Robot {
       if (value === 'A') {
         switch (index) {
           case 0:
-            this.y++;
+            this.y += 1;
             break;
 
           case 1:
-            this.x++;
+            this.x += 1;
             break;
 
           case 2:
-            this.y--;
+            this.y -= 1;
             break;
 
           case 3:
-            this.x--;
+            this.x -= 1;
+            break;
+
+          default:
             break;
         }
       } else if (value === 'R') {
-        index++;
+        index += 1;
         whatTheIndex();
         this.direction = sides[index];
       } else if (value === 'L') {
-        index--;
+        index -= 1;
         whatTheIndex();
         this.direction = sides[index];
       }

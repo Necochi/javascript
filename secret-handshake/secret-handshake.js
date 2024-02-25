@@ -14,7 +14,7 @@ export const commands = (num) => {
     return bigNum;
   };
 
-  for (let i = number.length; number.length < 5; i++) {
+  for (let i = number.length; number.length < 5; i += 1) {
     number.unshift('0');
   }
 
@@ -47,4 +47,5 @@ export const commands = (num) => {
     whatTheMove();
     return arr.reverse();
   }
+  return arr;
 };
