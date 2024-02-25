@@ -5,30 +5,43 @@
 
 export const age = (planet, seconds) => {
   const earthTime = 60 * 60 * 24 * 365.25;
+  let result;
 
   switch (planet) {
     case 'earth':
-      return Number((seconds / earthTime / 1).toFixed(2));
+      result = Number((seconds / earthTime / 1).toFixed(2));
+      break;
 
     case 'mercury':
-      return Number((seconds / earthTime /  0.2408467).toFixed(2));
+      result = Number((seconds / earthTime / 0.2408467).toFixed(2));
+      break;
 
     case 'venus':
-      return Number((seconds / earthTime / 0.61519726).toFixed(2));
+      result = Number((seconds / earthTime / 0.61519726).toFixed(2));
+      break;
 
     case 'mars':
-      return Number((seconds / earthTime / 1.8808158).toFixed(2));
+      result = Number((seconds / earthTime / 1.8808158).toFixed(2));
+      break;
 
     case 'jupiter':
-      return Number((seconds / earthTime / 11.862615).toFixed(2));
+      result = Number((seconds / earthTime / 11.862615).toFixed(2));
+      break;
 
     case 'saturn':
-      return Number((seconds / earthTime / 29.447498).toFixed(2));
+      result = Number((seconds / earthTime / 29.447498).toFixed(2));
+      break;
 
     case 'uranus':
-      return Number((seconds / earthTime / 84.016846).toFixed(2));
+      result = Number((seconds / earthTime / 84.016846).toFixed(2));
+      break;
 
     case 'neptune':
-      return Number((seconds / earthTime / 164.79132).toFixed(2));
+      result = Number((seconds / earthTime / 164.79132).toFixed(2));
+      break;
+
+    default:
+      break;
   }
+  return result;
 };
