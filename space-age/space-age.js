@@ -11,7 +11,7 @@ export const age = (planet, seconds) => {
       return Number((seconds / earthTime / 1).toFixed(2));
 
     case 'mercury':
-      return Number((seconds / earthTime /  0.2408467).toFixed(2));
+      return Number((seconds / earthTime / 0.2408467).toFixed(2));
 
     case 'venus':
       return Number((seconds / earthTime / 0.61519726).toFixed(2));

@@ -6,32 +6,29 @@
 export class Series {
   constructor(series) {
     if (series === '') {
-      throw new Error('series cannot be empty')
+      throw new Error('series cannot be empty');
     } else {
-    this.series = series.split('').map(Number);
+      this.series = series.split('').map(Number);
     }
   }
 
   slices(sliceLength) {
-    let newArr = [];
-    const index = this.series.length - sliceLength
-  if (sliceLength > this.series.length) {
-    throw new Error('slice length cannot be greater than series length')
-
-  } else if (sliceLength === 0) {
-    throw new Error('slice length cannot be zero')
-
-  } else if (sliceLength < 0) {
-    throw new Error('slice length cannot be negative')
-  }
-    else if (sliceLength <= this.series.length) {
+    const newArr = [];
+    const index = this.series.length - sliceLength;
+    if (sliceLength > this.series.length) {
+      throw new Error('slice length cannot be greater than series length');
+    } else if (sliceLength === 0) {
+      throw new Error('slice length cannot be zero');
+    } else if (sliceLength < 0) {
+      throw new Error('slice length cannot be negative');
+    } else if (sliceLength <= this.series.length) {
       this.series.forEach((value, i) => {
         if (i <= index) {
-        newArr.push(this.series.slice(i, sliceLength))
-        sliceLength++
-      } 
-    })
-    return newArr
+          newArr.push(this.series.slice(i, sliceLength));
+          sliceLength++;
+        }
+      });
+      return newArr;
     }
   }
 }
