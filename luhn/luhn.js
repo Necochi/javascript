@@ -12,7 +12,7 @@ export const valid = (nums) => {
 
   nums.split('').forEach((value) => {
     if (value !== ' ') {
-      if (/\d/.test(value)) {
+      if (Number(value) !== NaN) {
         arr.push(value);
       } else {
         trash.push(value);
