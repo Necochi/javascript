@@ -11,6 +11,8 @@
   },
   "ignorePatterns": ["**spec**"],
   "rules": {
+    "max-len": "off",
+    "no-loop-func": "off",
     "no-use-before-define": "off", 
     "import/prefer-default-export": "off",
     "max-classes-per-file": "off",
